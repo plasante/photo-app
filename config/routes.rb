@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   get 'thanks', to: 'charges#thanks', as: 'thanks'
 
   devise_for :users
+  
   root 'welcome#index'
 end
