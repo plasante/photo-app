@@ -11,7 +11,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170805130028) do
+ActiveRecord::Schema.define(version: 20170813135031) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "number"
+    t.string   "street"
+    t.string   "zip"
+    t.integer  "city_id"
+    t.integer  "state_id"
+    t.integer  "country_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "addresses", ["city_id"], name: "index_addresses_on_city_id"
+  add_index "addresses", ["country_id"], name: "index_addresses_on_country_id"
+  add_index "addresses", ["state_id"], name: "index_addresses_on_state_id"
+
+  create_table "cities", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "states", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "stores", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "address_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "stores", ["address_id"], name: "index_stores_on_address_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
