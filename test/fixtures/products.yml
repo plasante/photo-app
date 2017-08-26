@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  provider_id: 
+  price: 1
+  format: MyString
+  unit_price: 1
+  diabetic: false
+  category_id: 
+  store_id: 
+  description_id: 
+
+two:
+  provider_id: 
+  price: 1
+  format: MyString
+  unit_price: 1
+  diabetic: false
+  category_id: 
+  store_id: 
+  description_id: 
