@@ -1,4 +1,4 @@
-module FindLowestPrice
+module SavesHelper
   def extractBestProductPriceByCategory(store, category)
     product = Product.where(:store_id => store.id, :category_id => category.category.id)
                      .order(unit_price: :asc)
@@ -26,7 +26,7 @@ module FindLowestPrice
   def build_html_table( category_array , store_array )
     id = %q["myTable"]
     table = %Q[<table id=#{id}>]
-    table += "<tr><th></th><th>IGA EXTRA</th><th>Maxi></th><th>Metro Plus</th></tr>"
+    table += "<tr><th></th><th>IGA EXTRA</th><th>Maxi</th><th>Metro Plus</th></tr>"
     for i in 0..category_array.size
       table += "<tr><td>#{category_array[i]}</td>"
       for j in 0..(store_array.size - 1)
@@ -41,17 +41,17 @@ module FindLowestPrice
     "Hello"
   end
   
-  def save
+  def show_best_store
     first_list = List.first
     puts "Processing list # " + first_list.id.to_s + " (Best Price By Store / Category / SubCategory)"
     
     user = first_list.user
-    puts "The user associated with that first list is : " + user.name
+    #puts "The user associated with that first list is : " + user.name
     
     categories = ListCategory.where(list_id: first_list.id)
     num_of_stores = 3
     num_of_categories = categories.count
-    puts "Number of categories = #{num_of_categories}"
+    #puts "Number of categories = #{num_of_categories}"
     
     category_idx = 0
     store_idx = 0
@@ -61,7 +61,7 @@ module FindLowestPrice
     stores = Store.all
     categories.each do |category|
       category_array[category_idx] = category.category.name
-      puts "Category = " + category.category.name
+      #puts "Category = " + category.category.name
       store_idx = 0
       stores.each do |store|
         #findBestPriceByCategory(store, category, store_array, category_idx, store_idx)
@@ -78,8 +78,8 @@ module FindLowestPrice
     end
     # Sorting by the last element ascending order
     store_array.sort_by!(&:last)
-    pp store_array
+    #pp store_array
     
-    html = build_html_table( category_array , store_array )
+    html = build_html_table( category_array , store_array ).html_safe
   end
 end
