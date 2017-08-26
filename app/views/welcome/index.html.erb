@@ -2,7 +2,7 @@
 	<div class="jumbotron">
     	<h2>Welcome to the Grocery App!</h2>
     	<p>
-        	<%= link_to 'Save money now!', "#", class: 'btn btn-primary sign-up' %>
+        	<%= link_to 'Save money now!', saves_path, class: 'btn btn-primary sign-up' %>
         </p>
     </div>
 <% else %>
@@ -30,7 +30,7 @@
                         <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary sign-up' %>
                     </p>
                     <p>
-                        <%= link_to 'Save money now!', "#", class: 'btn btn-primary sign-up' %>
+                        <%= link_to 'Save money now!', saves_path, class: 'btn btn-primary sign-up' %>
                     </p>
             </div>
             <div class="col-lg-4 plan">
