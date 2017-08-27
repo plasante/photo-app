@@ -14,7 +14,8 @@ class ApplicationController < ActionController::Base
   
     def extract_locale_from_accept_language_header
       language = request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
-      if (language != "en" || language != "fr")
+      puts "**** incoming language = " + language
+      if (language != "en" && language != "fr")
         puts "**** Language unknown = " + language
         "en"
       else
