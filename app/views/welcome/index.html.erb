@@ -1,13 +1,13 @@
 <% if current_user %>
 	<div class="jumbotron">
-    	<h2>Welcome to the Grocery App!</h2>
+    	<h2><%= I18n.t('welcomeGroceryApp') %></h2>
     	<p>
         	<%= link_to 'Save money now!', saves_path, class: 'btn btn-primary sign-up' %>
         </p>
     </div>
 <% else %>
     <div class="jumbotron">
-        <h2>Welcome to the Grocery App!</h2>
+        <h2><%= I18n.t('welcomeGroceryApp') %></h2>
         <p class="lead">
             You'll love saving money with our application.
         </p>
