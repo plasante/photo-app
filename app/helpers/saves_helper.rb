@@ -28,7 +28,13 @@ module SavesHelper
     table = %Q[<table class="table-responsive table-condensed" id=#{id}>]
     table += "<tr><th></th><th>Iga Extra</th><th>Maxi</th><th>Metro Plus</th></tr>"
     for i in 0..category_array.size
-      table += "<tr><td>#{category_array[i]}</td>"
+      if (i < category_array.size)
+        categorie = category_array[i]
+        categorie_translate = I18n.t(categorie)
+        table += "<tr><td>#{categorie_translate}</td>"
+      else
+        table += "<tr><td>Total</td>"
+      end
       for j in 0..(store_array.size - 1)
         table += "<td>#{store_array[j][i]}</td>"
       end
