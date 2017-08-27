@@ -25,7 +25,7 @@ module SavesHelper
   
   def build_html_table( category_array , store_array )
     id = %q["myTable"]
-    table = %Q[<table id=#{id}>]
+    table = %Q[<table class="table-responsive table-condensed" id=#{id}>]
     table += "<tr><th></th><th>IGA EXTRA</th><th>Maxi</th><th>Metro Plus</th></tr>"
     for i in 0..category_array.size
       table += "<tr><td>#{category_array[i]}</td>"
