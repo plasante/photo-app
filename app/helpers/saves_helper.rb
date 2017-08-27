@@ -25,8 +25,8 @@ module SavesHelper
   
   def build_html_table( category_array , store_array )
     id = %q["myTable"]
-    table = %Q[<table class="table-responsive table-condensed" id=#{id}>]
-    table += "<tr><th></th><th>Iga Extra</th><th>Maxi</th><th>Metro Plus</th></tr>"
+    table = %Q[<table class="table table-hover" id=#{id}>]
+    table += "<thead class=thead-inverse><tr><th></th><th>Iga Extra</th><th>Maxi</th><th>Metro Plus</th></tr></thead><tbody>"
     for i in 0..category_array.size
       if (i < category_array.size)
         categorie = category_array[i]
@@ -40,7 +40,7 @@ module SavesHelper
       end
       table += "</tr>"
     end
-    table += "</table>"
+    table += "</tbody></table>"
   end
   
   def say_hello
