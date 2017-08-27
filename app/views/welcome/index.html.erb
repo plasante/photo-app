@@ -2,35 +2,33 @@
 	<div class="jumbotron">
     	<h2><%= I18n.t('welcomeGroceryApp') %></h2>
     	<p>
-        	<%= link_to 'Save money now!', saves_path, class: 'btn btn-primary sign-up' %>
+        	<%= link_to t('saveMoneyNow'), saves_path, class: 'btn btn-primary sign-up' %>
         </p>
     </div>
 <% else %>
     <div class="jumbotron">
         <h2><%= I18n.t('welcomeGroceryApp') %></h2>
         <p class="lead">
-            You'll love saving money with our application.
+        	<%= I18n.t('loveSavingMoney') %>
         </p>
     </div>
     <div class="row">
         <div class="plans clearfix">
         	<div class="col-lg-4 col-lg-offset-2 plan">
-                <h2>Free Plan</h2>
+                <h2><%= I18n.t('freePlan') %></h2>
                 <div class="price pull-right">
-                    Price: $0
+                    <%= I18n.t('price') %>: $0
                 </div>
                 <div class="features">
                     <ul>
-                        <li>Maximum of 10 articles per Shopping List</li>
-                        <li>Responsive design</li>
-                        <li>Access anywhere</li>
+                        <li><%= I18n.t('listSize') %></li>
                     </ul>
                 </div>
                     <p>
-                        <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary sign-up' %>
+                        <%= link_to t('signUp'), new_user_registration_path, class: 'btn btn-primary sign-up' %>
                     </p>
                     <p>
-                        <%= link_to 'Save money now!', saves_path, class: 'btn btn-primary sign-up' %>
+                        <%= link_to t('saveMoneyNow'), saves_path, class: 'btn btn-primary sign-up' %>
                     </p>
             </div>
             <div class="col-lg-4 plan">
