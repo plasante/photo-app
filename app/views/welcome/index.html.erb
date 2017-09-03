@@ -32,19 +32,17 @@
                     </p>
             </div>
             <div class="col-lg-4 plan">
-                <h2>Premium Plan</h2>
+                <h2><%= I18n.t('premiumPlan') %></h2>
                 <div class="price pull-right">
-                    Price: $1
+                    <%= I18n.t('price') %>: $1
                 </div>
                 <div class="features">
                     <ul>
-                        <li>100 items in your Shopping List</li>
-                        <li>Responsive design</li>
-                        <li>Access anywhere</li>
+                        <li><%= I18n.t('centArticles')%></li>
                     </ul>
                 </div>
                     <p>
-                        <%= link_to 'Subscribe', charges_new_path, class: 'btn btn-primary sign-up' %>
+                        <%= link_to t('subscribe'), charges_new_path, class: 'btn btn-primary sign-up' %>
                     </p>
             </div>
         </div>

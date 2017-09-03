@@ -47,7 +47,7 @@ module SavesHelper
     "Hello"
   end
   
-  def show_best_store
+  def show_best_stores
     first_list = List.first
     puts "Processing list # " + first_list.id.to_s + " (Best Price By Store / Category / SubCategory)"
     
