@@ -18,14 +18,13 @@
             <%= link_to (truncate(current_user.email, length: 25)).html_safe,
                   edit_user_registration_path, title: 'Edit Profile' %>
           </li>
-          <li class="col-md-1">&nbsp;</li>
-          <li class="col-md-3 logout">
-            <%= link_to('Logout', destroy_user_session_path,
+          <li class="col-md-4 logout">
+            <%= link_to(I18n.t('logout'), destroy_user_session_path,
                   class: 'btn btn-xs btn-danger', title: 'Logout', :method => :delete) %>
           </li>
         <% else %>
           <li class="col-md4 pull-right">
-            <%= link_to('Sign In', new_user_session_path, class: 'btn btn-primary', title: 'Sign in') %>
+            <%= link_to( I18n.t('signIn'), new_user_session_path, class: 'btn btn-primary', title: 'Sign in') %>
           </li>
         <% end %>
       </ul>
