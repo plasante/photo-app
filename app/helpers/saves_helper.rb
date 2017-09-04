@@ -23,10 +23,13 @@ module SavesHelper
     store_array[store_idx][category_idx] = product.price.to_f / 100
   end
   
-  def build_html_table( category_array , store_array )
+  def build_html_table( category_array , store_array , best_store)
+    store_id = best_store.id
+    store_name = best_store.name
+    best_price_link = %Q[<a class="btn btn-primary" href="/details?store_id=#{store_id}">#{store_name}</a>]
     id = %q["myTable"]
     table = %Q[<table class="table table-hover" id=#{id}>]
-    table += "<thead class=thead-inverse><tr><th></th><th>Iga Extra</th><th>Maxi</th><th>Metro Plus</th></tr></thead><tbody>"
+    table += %Q[<thead class=thead-inverse><tr><th></th><th>#{best_price_link}</th><th>Maxi</th><th>Metro Plus</th></tr></thead><tbody>]
     for i in 0..category_array.size
       if (i < category_array.size)
         categorie = category_array[i]
@@ -77,7 +80,9 @@ module SavesHelper
       category_idx += 1
     end
     
+    # print the category
     p category_array
+    
     # Calculating the sum for each store
     store_array.each do |row|
       row[-1] = row.inject(0, :+)
@@ -86,6 +91,8 @@ module SavesHelper
     store_array.sort_by!(&:last)
     #pp store_array
     
-    html = build_html_table( category_array , store_array ).html_safe
+    best_store = Store.find(2)
+    
+    html = build_html_table( category_array , store_array , best_store).html_safe
   end
 end

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'charges/new'
   
   get 'saves', to: 'saves#save_money', as: 'saves'
+  get 'details', to: 'saves#show_details', as: 'details'
   
   post 'charges/create'
   
