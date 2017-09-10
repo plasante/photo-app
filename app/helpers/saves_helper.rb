@@ -80,24 +80,17 @@ module SavesHelper
       category_idx += 1
     end
     
-    # print the category
-    p category_array
-    
-    # Calculating the sum for each store
-#    store_array.each do |row|
-#      row[-1] = row.inject(0, :+)
-#    end
-    
     i = 0
     j = 1
-    until i >= 2
+    until i >= 3
       sum = 0
-      until j >= category_array.length - 1
+      until j >= category_array.length
         sum += store_array[i][j]
         j = j + 1
       end
       store_array[i][-1] = sum
       i = i + 1
+      j = 1
     end
     
     # Sorting by the last element ascending order
