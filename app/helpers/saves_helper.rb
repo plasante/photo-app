@@ -99,12 +99,11 @@ module SavesHelper
     store_array.sort_by!(&:last)
 
     # I need to find the best store.id
-    #best_store = Store.find(2)
     best_store = Store.find(store_array[0][0])
     #puts "**** best_store.id = " + best_store.id.to_s
-    puts "**** store_array[0][0] = " + store_array[0][0].to_s
-    puts "**** store_array[1][0] = " + store_array[1][0].to_s
-    puts "**** store_array[2][0] = " + store_array[2][0].to_s
+    #puts "**** store_array[0][0] = " + store_array[0][0].to_s
+    #puts "**** store_array[1][0] = " + store_array[1][0].to_s
+    #puts "**** store_array[2][0] = " + store_array[2][0].to_s
     html = build_html_table( category_array , store_array , best_store).html_safe
   end
 end
