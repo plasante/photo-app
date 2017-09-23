@@ -237,6 +237,7 @@ Product.create!(provider_id: provider_maxi.id,
 
 list_pierre = List.create!(user_id: user_pierre.id)
 
+ListCategory.delete_all
 list_category_lait    = ListCategory.create!( list_id:    list_pierre.id,
                                               category_id: category_produit_laitier.id,
                                               description_id: description_lait_2pct.id)
