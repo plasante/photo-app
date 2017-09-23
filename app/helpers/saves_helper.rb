@@ -28,9 +28,11 @@ module SavesHelper
     store_id = best_store.id
     store_name = best_store.name
     best_price_link = %Q[<a class="btn btn-primary" href="/details?store_id=#{store_id}">#{store_name}</a>]
+    second_best_price_name = Store.find(store_array[1][0]).name
+    third_best_price_name = Store.find(store_array[2][0]).name
     id = %q["myTable"]
     table = %Q[<table class="table table-hover" id=#{id}>]
-    table += %Q[<thead class=thead-inverse><tr><th></th><th>#{best_price_link}</th><th>Maxi</th><th>Metro Plus</th></tr></thead><tbody>]
+    table += %Q[<thead class=thead-inverse><tr><th></th><th>#{best_price_link}</th><th>#{second_best_price_name}</th><th>#{third_best_price_name}</th></tr></thead><tbody>]
     for i in 1..category_array.size
       if (i < category_array.size)
         categorie = category_array[i]
@@ -99,7 +101,10 @@ module SavesHelper
     # I need to find the best store.id
     #best_store = Store.find(2)
     best_store = Store.find(store_array[0][0])
-    
+    #puts "**** best_store.id = " + best_store.id.to_s
+    puts "**** store_array[0][0] = " + store_array[0][0].to_s
+    puts "**** store_array[1][0] = " + store_array[1][0].to_s
+    puts "**** store_array[2][0] = " + store_array[2][0].to_s
     html = build_html_table( category_array , store_array , best_store).html_safe
   end
 end

@@ -89,6 +89,48 @@ description_boeuf_hache_mi_maigre = Description.create!(description: "Boeuf hach
 
 Product.delete_all
 #
+# METRO
+#
+Product.create!(provider_id: provider_lactantia.id,
+                price: 398,
+                format: "2000ml",
+                description_id: description_lait_2pct.id,
+                diabetic: false,
+                category_id: category_produit_laitier.id,
+                store_id:    metro_mascouche_store.id)
+
+Product.create!(provider_id: provider_country_harvest.id,
+                price: 488,
+                format: "600g",
+                description_id: description_pain_blanc_ble_entier.id,
+                diabetic: true,
+                category_id: category_produit_pain.id,
+                store_id:    metro_mascouche_store.id)
+
+Product.create!(provider_id: provider_maxwell_house.id,
+                price: 598,
+                format: "263g",
+                description_id: description_cafe_regulier.id,
+                diabetic: false,
+                category_id: category_produit_cafe.id,
+                store_id:    metro_mascouche_store.id)
+
+Product.create!(provider_id: provider_general_mills.id,
+                price: 798,
+                format: "525g",
+                description_id: description_cereale.id,
+                diabetic: true,
+                category_id: category_produit_cereale.id,
+                store_id:    metro_mascouche_store.id)
+
+Product.create!(provider_id: provider_metro.id,
+                price: 988,
+                format: "1000g",
+                description_id: description_boeuf_hache_mi_maigre.id,
+                diabetic: false,
+                category_id: category_produit_viande.id,
+                store_id:    metro_mascouche_store.id)
+#
 # IGA
 #
 # Lait 2% Lactantia
@@ -150,48 +192,7 @@ Product.create!(provider_id: provider_iga.id,
                 diabetic: false,
                 category_id: category_produit_viande.id,
                 store_id:    iga_mascouche_store.id)
-#
-# METRO
-#
-Product.create!(provider_id: provider_lactantia.id,
-                price: 398,
-                format: "2000ml",
-                description_id: description_lait_2pct.id,
-                diabetic: false,
-                category_id: category_produit_laitier.id,
-                store_id:    metro_mascouche_store.id)
 
-Product.create!(provider_id: provider_country_harvest.id,
-                price: 488,
-                format: "600g",
-                description_id: description_pain_blanc_ble_entier.id,
-                diabetic: true,
-                category_id: category_produit_pain.id,
-                store_id:    metro_mascouche_store.id)
-
-Product.create!(provider_id: provider_maxwell_house.id,
-                price: 898,
-                format: "263g",
-                description_id: description_cafe_regulier.id,
-                diabetic: false,
-                category_id: category_produit_cafe.id,
-                store_id:    metro_mascouche_store.id)
-
-Product.create!(provider_id: provider_general_mills.id,
-                price: 798,
-                format: "525g",
-                description_id: description_cereale.id,
-                diabetic: true,
-                category_id: category_produit_cereale.id,
-                store_id:    metro_mascouche_store.id)
-
-Product.create!(provider_id: provider_metro.id,
-                price: 988,
-                format: "1000g",
-                description_id: description_boeuf_hache_mi_maigre.id,
-                diabetic: false,
-                category_id: category_produit_viande.id,
-                store_id:    metro_mascouche_store.id)
 #
 # Maxi
 #
@@ -212,7 +213,7 @@ Product.create!(provider_id: provider_country_harvest.id,
                 store_id:    maxi_mascouche_store.id)
 
 Product.create!(provider_id: provider_maxwell_house.id,
-                price: 897,
+                price: 197,
                 format: "263g",
                 description_id: description_cafe_regulier.id,
                 diabetic: false,
