@@ -1,4 +1,4 @@
-module ShowProductDetails
+module ShowProductDetailsHelper
   
   def extractBestProductPriceByDescription2(store, category)
     product = Product.where(:store_id => store.id, :category_id => category.category.id, :description_id => category.description.id)
@@ -9,7 +9,7 @@ module ShowProductDetails
   def findPriceBySubCategory2(store, category, price_array, category_array, category_idx)
     product = extractBestProductPriceByDescription2(store, category)
     price_array[category_idx] = product.price.to_f / 100
-    category_array[category_idx] = product.provider.name + " " + product.description.description
+    category_array[category_idx] = product.description.description + " (" + product.provider.name + ")"
   end
   
   def build_html_table2( category_array , price_array , store )
