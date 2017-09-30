@@ -26,10 +26,12 @@ module SavesHelper
   
   def build_html_table( category_array , store_array , best_store)
     store_id = best_store.id
-    store_name = best_store.name
+    store_name = best_store.name + " " + best_store.address.city.name
     best_price_link = %Q[<a class="btn btn-primary" href="/details?store_id=#{store_id}">#{store_name}</a>]
-    second_best_price_name = Store.find(store_array[1][0]).name
-    third_best_price_name = Store.find(store_array[2][0]).name
+    second_best_store = Store.find(store_array[1][0])
+    second_best_price_name = second_best_store.name + " " + second_best_store.address.city.name
+    third_best_store = Store.find(store_array[2][0])
+    third_best_price_name = third_best_store.name + " " + third_best_store.address.city.name
     id = %q["myTable"]
     table = %Q[<table class="table table-hover" id=#{id}>]
     table += %Q[<thead class=thead-inverse><tr><th></th><th>#{best_price_link}</th><th>#{second_best_price_name}</th><th>#{third_best_price_name}</th></tr></thead><tbody>]
@@ -55,7 +57,7 @@ module SavesHelper
   
   def show_best_stores
     first_list = List.first
-    puts "Processing list # " + first_list.id.to_s + " (Best Price By Store / Category / SubCategory)"
+    #puts "Processing list # " + first_list.id.to_s + " (Best Price By Store / Category / SubCategory)"
     
     user = first_list.user
     #puts "The user associated with that first list is : " + user.name
@@ -98,12 +100,8 @@ module SavesHelper
     # Sorting by the last element ascending order
     store_array.sort_by!(&:last)
 
-    # I need to find the best store.id
+    # I need to find the best store.id and pass the object to build_html_table method
     best_store = Store.find(store_array[0][0])
-    #puts "**** best_store.id = " + best_store.id.to_s
-    #puts "**** store_array[0][0] = " + store_array[0][0].to_s
-    #puts "**** store_array[1][0] = " + store_array[1][0].to_s
-    #puts "**** store_array[2][0] = " + store_array[2][0].to_s
     html = build_html_table( category_array , store_array , best_store).html_safe
   end
 end

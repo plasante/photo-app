@@ -39,9 +39,9 @@ iga_mascouche_addresse   = Address.create( number: '65'  , street: 'Montee Masso
 maxi_mascouche_addresse  = Address.create( number: '1100', street: 'Montee Masson', zip: 'J7K 3B8', city: mascouche, state: quebec, country: canada)
 
 Store.delete_all
-metro_mascouche_store = Store.create( name: 'Metro Mascouche', address: metro_mascouche_addresse)
-iga_mascouche_store   = Store.create( name: 'IGA Mascouche', address: iga_mascouche_addresse)
-maxi_mascouche_store  = Store.create( name: 'MAXI Mascouche', address: maxi_mascouche_addresse)
+metro_mascouche_store = Store.create( name: 'Metro', address: metro_mascouche_addresse)
+iga_mascouche_store   = Store.create( name: 'IGA', address: iga_mascouche_addresse)
+maxi_mascouche_store  = Store.create( name: 'MAXI', address: maxi_mascouche_addresse)
 
 Provider.delete_all
 provider_lactantia = Provider.create!(name: "Lactancia")
@@ -84,7 +84,7 @@ description_lait_1pct = Description.create!(description: "Lait 1%")
 description_lait_2pct = Description.create!(description: "Lait 2%")
 description_pain_blanc_ble_entier = Description.create!(description: "Pain blanc, blé entier")
 description_cafe_regulier = Description.create!(description: "Café régulier")
-description_cereale = Description.create!(description: "Céréale")
+description_cereale = Description.create!(description: "Cheerios")
 description_boeuf_hache_mi_maigre = Description.create!(description: "Boeuf haché mi-maigre")
 
 Product.delete_all

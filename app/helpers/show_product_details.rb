@@ -13,9 +13,10 @@ module ShowProductDetails
   end
   
   def build_html_table2( category_array , price_array , store )
+    store_address = store.name + " (" + store.address.number + " " + store.address.street + ", " + store.address.city.name + ")"
     id = %q["myTable"]
     table = %Q[<table class="table table-hover" id=#{id}>]
-    table += "<thead class=thead-inverse><tr><th></th><th>#{store.name}</th></tr></thead><tbody>"
+    table += "<thead class=thead-inverse><tr><th></th><th>#{store_address}</th></tr></thead><tbody>"
     for i in 0..category_array.size
       if (i < category_array.size)
         categorie = category_array[i]
