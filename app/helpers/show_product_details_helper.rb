@@ -33,7 +33,7 @@ module ShowProductDetailsHelper
   
   def show_best_store_product_details(store_id)
     
-    store = Store.find(store_id)
+    bestStore = Store.find(store_id)
     first_list = List.first
     categories = ListCategory.where(list_id: first_list.id)
     
@@ -42,15 +42,16 @@ module ShowProductDetailsHelper
     category_idx = 0
     
     categories.each do |category|
-      findPriceBySubCategory2(store, category, price_array, category_array, category_idx)
+      findPriceBySubCategory2(bestStore, category, price_array, category_array, category_idx)
       category_idx += 1
     end
     
     # summing the price_array
     price_array[-1] = price_array.inject(0){|sum,x| sum + x }
+    # This is necessary to have a nicely formatted number (i.e: 25.89 instead of 25.888888888)
     price_array[-1] = price_array[-1].round(2)
     
-    html = build_html_table2( category_array , price_array, store ).html_safe
+    html = build_html_table2( category_array , price_array, bestStore ).html_safe
     #p html
   end
 end
