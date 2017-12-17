@@ -48,6 +48,7 @@ module ShowProductDetailsHelper
     
     # summing the price_array
     price_array[-1] = price_array.inject(0){|sum,x| sum + x }
+    price_array[-1] = price_array[-1].round(2)
     
     html = build_html_table2( category_array , price_array, store ).html_safe
     #p html

@@ -92,7 +92,7 @@ module SavesHelper
         sum += store_array[i][j]
         j = j + 1
       end
-      store_array[i][-1] = sum
+      store_array[i][-1] = sum.round(2)
       i = i + 1
       j = 1
     end
@@ -100,7 +100,7 @@ module SavesHelper
     # Sorting by the last element ascending order
     store_array.sort_by!(&:last)
 
-    # I need to find the best store.id and pass the object to build_html_table method
+    # Finding best_store and passing the object to build_html_table method
     best_store = Store.find(store_array[0][0])
     html = build_html_table( category_array , store_array , best_store).html_safe
   end
