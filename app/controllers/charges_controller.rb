@@ -40,13 +40,10 @@ class ChargesController < ApplicationController
         @description = "Grocery Shopping List Subscription"
       end
       
-      #
-      #TODO: Uncomment this
-      #
       def check_if_subscribed
-        if current_user.subscribed
-          #flash[:warning] = "Thanks but you have already subscribed!"
-          #redirect_to root_path
+        if current_user.subscribed && current_user.email != "pierre@email.com"
+          flash[:warning] = "Thanks but you have already subscribed!"
+          redirect_to root_path
         end
       end
 end
